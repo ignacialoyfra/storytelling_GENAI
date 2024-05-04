@@ -5,6 +5,6 @@
 # Capturas:
 
 * Interfaz de la aplicación:
-![interfaz](media/imagen_1.PNG)
+![interfaz](media/imagen_1.png)
 
 
