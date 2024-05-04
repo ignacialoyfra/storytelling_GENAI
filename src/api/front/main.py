@@ -9,6 +9,7 @@ from src.api.back.prompts import prompt_creative, prompt_dark, prompt_funny, pro
 from langchain.chains import LLMChain
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import OpenAI
+from langchain.chat_models import ChatOpenAI
 from src.api.back.model import model, tokenizer
 
 
@@ -24,7 +25,7 @@ input_id = "user_input"
 menu = ["Creativo","Oscuro","Divertido","Romántico","Melancólico","Inspirador"]
 choice = st.selectbox("Selección de tono del storytelling",menu,placeholder="Selección")
 temp = st.slider("Temperatura del modelo",min_value=0.0,max_value=1.0,value=0.5,step=0.01)
-model_openai = OpenAI(temperature=temp)
+model_openai = ChatOpenAI(temperature=temp, model_name="gpt-3.5-turbo-16k")
 user_input = st.text_input("Ingresa el nombre de tu producto/marca:",key=input_id)
 uploaded_file = st.file_uploader("Sube tú imagen", type=["jpg", "jpeg", "png"])
 if uploaded_file is not None:
